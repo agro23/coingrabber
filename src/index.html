@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> <!-- moon -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- carousel -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- carousel -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="https://rawgit.com/mzabriskie/axios/master/dist/axios.min.js"></script>
+    <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/coinapi_v1.js"></script>
+    <!-- <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/example_javascript.js"></script> -->
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/Projector.js"></script>
+    <script src="js/CanvasRenderer.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dhurjati|Encode+Sans|Libre+Barcode+39+Text|Libre+Franklin|Lobster|Maven+Pro|Open+Sans+Condensed:300|Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Inconsolata|Lato|Montserrat:400,800,900|Open+Sans+Condensed:300|Poppins|Titillium+Web|Ubuntu" rel="stylesheet">
+    <script src="https://rawgit.com/mzabriskie/axios/master/dist/axios.min.js"></script>
+    <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/coinapi_v1.js"></script>
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- <script src="https://rawgit.com/coinapi/coinapi-sdk/master/javascript-rest/example_javascript.js"></script> -->
+    <title>fomo.church - crypto calculator</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+<!-- ticker -->
+    <div class="row" id="ticker">
+      <div class="col-sm-2">
+        <script type="text/javascript">
+        crypt_single_base_currency = "Bitcoin (BTC)";crypt_single_target_currency = "US Dollar (USD)";crypt_single_border_color = "#000000";crypt_single_font_size = "small";crypt_single_font_color = "#ffffff";</script><script type="text/javascript" src="js/single_widget.js"></script>
+      </div>
+      <div class="col-sm-2">
+        <script type="text/javascript">
+        crypt_single_base_currency = "Ethereum (ETH)";crypt_single_target_currency = "US Dollar (USD)";crypt_single_border_color = "#000000";crypt_single_font_size = "small";crypt_single_font_color = "#ffffff";</script><script type="text/javascript" src="js/single_widget.js"></script>
+      </div>
+      <div class="col-sm-2">
+        <script type="text/javascript">
+        crypt_single_base_currency = "Litecoin (LTC)";crypt_single_target_currency = "US Dollar (USD)";crypt_single_border_color = "#000000";crypt_single_font_size = "small";crypt_single_font_color = "#ffffff";</script><script type="text/javascript" src="js/single_widget.js"></script>
+      </div>
+      <div class="col-sm-2">
+        <script type="text/javascript">
+        crypt_single_base_currency = "Monero (XMR)";crypt_single_target_currency = "US Dollar (USD)";</script><script type="text/javascript" src="js/single_widget.js"></script>
+      </div>
+      <div class="col-sm-2">
+        <script type="text/javascript">
+        crypt_single_base_currency = "Ripple (XRP)";crypt_single_target_currency = "US Dollar (USD)";crypt_single_border_color = "#000000";crypt_single_font_size = "small";crypt_single_font_color = "#ffffff";</script><script type="text/javascript" src="js/single_widget.js"></script>
+      </div>
+      <div class="col-sm-2">
+        <script type="text/javascript">
+        crypt_single_base_currency = "Bitcoin Cash (BCH)";crypt_single_target_currency = "US Dollar (USD)";crypt_single_border_color = "#000000";crypt_single_font_size = "small";crypt_single_font_color = "#ffffff";</script><script type="text/javascript" src="js/single_widget.js"></script>
+      </div>
+    </div>
+<!-- jumbotron -->
+      <div class="jumbotron" style="overflow: auto;">
+        <p id="title"><strong>
+          <span class="titleHover" title="FEAR">F &nbsp;&nbsp;</span>
+          <span class="titleHover" title="OF">O &nbsp;&nbsp;</span>
+          <span class="titleHover" title="MISSING">M &nbsp;&nbsp;</span>
+          <span class="titleHover" title="OUT">O &nbsp;&nbsp;</span>
+          <span class="titleHover" title="DOT">. &nbsp;&nbsp;</span>
+          <span class="titleHover">C &nbsp;&nbsp;</span>
+          <span class="titleHover">H &nbsp;&nbsp;</span>
+          <span class="titleHover">U &nbsp;&nbsp;</span>
+          <span class="titleHover">R &nbsp;&nbsp;</span>
+          <span class="titleHover">C &nbsp;&nbsp;</span>
+          <span class="titleHover">H</span></strong></p>
+        <p>c r y p t o &nbsp; c a l c u l a t o r</p>
+
+      </div>
+      <div class="resultDisplay">
+        <p id="terminal"><span class="result"></span></p>
+      </div>
+      <div class="socialWidget">
+        <ul class="soc">
+          <li><a class="soc-twitter" href="" data-size="large"></a></li>
+          <li><a class="soc-reddit" href="#"></a></li>
+          <li><a class="soc-github" href="#"></a></li>
+          <li><a class="soc-facebook soc-icon-last" href="#"></a></li>
+        </ul>
+      </div>
+<!-- moon -->
+  <div id="container">
+      <div class="moonDiv">
+
+          <script src="js/moon.js"></script>
+      </div>
+    </div><!-- moonDiv -->
+<!-- calculator -->
+      <div class="well well-sm" id="moonWell">
+        <div class="formElements">
+
+
+          <label for="fiat-amount">IF I HAD INVESTED</label>
+          <div class="form-inline form-group">
+
+              <input id="fiat-amount" class="form-control" type="text" onkeyup="this.value=this.value.replace(/[^\d]/,'')" style="width: 185px;" placeholder="Investment Amount">
+
+              <select id="fiatType" class="form-control" style="width: 60px;">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="CAD">CAD</option>
+                <option value="GBP">GBP</option>
+                <option value="RUR">RUR</option>
+                <option value="JPY">JPY</option>
+                <option value="CNY">CNY</option>
+                <option value="KRW">KRW</option>
+              </select>
+
+            </div>
+
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="crypto-search-btn">Cryptocurrency of Choice</span>
+              <span class="caret"></span></button>
+            <ul id="coinType" class="dropdown-menu">
+              <input class="form-control" id="coin-type-input" type="text" placeholder="Search...">
+            </ul>
+          </div>
+
+          <div class="form-group">
+            <label for="buy-date">ON THIS DATE</label>
+            <input id="buy-date" min="" max="" class="form-control" type="date" onkeydown="return false">
+          </div>
+          <div class="form-group">
+            <label for="sell-date">AND SOLD ON THIS DATE</label>
+            <input id="sell-date" max="" class="form-control" type="date" onkeydown="return false">
+          </div>
+          <button type="button" class="btn btn-default" id="calculate">Calculate</button>
+        </div>
+      </div>
+<!-- T-shirt carousel -->
+      <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
+      <!-- Carousel indicators -->
+        <!-- <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol> -->
+        <!-- Wrapper for carousel items -->
+        <!-- <div class="carousel-inner">
+          <div class="item active" id="tShirtOne">
+              <img src="img/protoBot.gif" alt="First Slide">
+          </div>
+          <div class="item" id="tShirtTwo">
+              <img src="img/protoBot.gif" alt="Second Slide">
+          </div>
+          <div class="item" id="tShirtThree">
+              <img src="img/protoBot.gif" alt="Third Slide">
+          </div>
+        </div> -->
+        <!-- Carousel controls -->
+        <!-- <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div> -->
+    </div> <!-- container -->
+
+  </body>
+</html>
